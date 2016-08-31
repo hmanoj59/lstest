@@ -26,17 +26,17 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="somethings_controller.rb" pinned="false" current-in-tab="false">
+      <file leaf-file-name="somethings_controller.rb" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/somethings_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="107" column="48" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
+            <state vertical-scroll-proportion="0.32919255">
+              <caret line="91" column="50" selection-start-line="91" selection-start-column="50" selection-end-line="91" selection-end-column="50" />
               <folding>
-                <marker date="1472628040000" expanded="true" signature="145:187" placeholder="#..." />
-                <marker date="1472628040000" expanded="true" signature="270:316" placeholder="#..." />
-                <marker date="1472628040000" expanded="true" signature="485:529" placeholder="#..." />
-                <marker date="1472628040000" expanded="true" signature="1248:1306" placeholder="#..." />
-                <marker date="1472628040000" expanded="true" signature="1744:1796" placeholder="#..." />
+                <marker date="1472637291000" expanded="true" signature="145:187" placeholder="#..." />
+                <marker date="1472637291000" expanded="true" signature="270:316" placeholder="#..." />
+                <marker date="1472637291000" expanded="true" signature="485:529" placeholder="#..." />
+                <marker date="1472637291000" expanded="true" signature="1248:1306" placeholder="#..." />
+                <marker date="1472637291000" expanded="true" signature="1744:1796" placeholder="#..." />
               </folding>
             </state>
           </provider>
@@ -95,10 +95,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_form.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/somethings/_form.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2880922">
+            <state vertical-scroll-proportion="-9.375">
               <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
               <folding />
             </state>
@@ -137,8 +137,8 @@
         <option value="$PROJECT_DIR$/app/views/somethings/new.html.erb" />
         <option value="$PROJECT_DIR$/app/views/somethings/show.html.erb" />
         <option value="$PROJECT_DIR$/config/application.yml" />
-        <option value="$PROJECT_DIR$/app/controllers/somethings_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/somethings/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/somethings_controller.rb" />
       </list>
     </option>
   </component>
@@ -629,30 +629,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/somethings/show.json.jbuilder">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/somethings/new.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.875">
           <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/somethings/show.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.25">
-          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
-          <folding>
-            <marker date="1472626328000" expanded="true" signature="89:152" placeholder="..." />
-            <marker date="1472626328000" expanded="true" signature="153:218" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -672,25 +653,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/somethings_controller.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/somethings/_form.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="107" column="48" selection-start-line="107" selection-start-column="48" selection-end-line="107" selection-end-column="48" />
+        <state vertical-scroll-proportion="-9.375">
+          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/somethings/show.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25">
+          <caret line="2" column="25" selection-start-line="2" selection-start-column="25" selection-end-line="2" selection-end-column="25" />
           <folding>
-            <marker date="1472628040000" expanded="true" signature="145:187" placeholder="#..." />
-            <marker date="1472628040000" expanded="true" signature="270:316" placeholder="#..." />
-            <marker date="1472628040000" expanded="true" signature="485:529" placeholder="#..." />
-            <marker date="1472628040000" expanded="true" signature="1248:1306" placeholder="#..." />
-            <marker date="1472628040000" expanded="true" signature="1744:1796" placeholder="#..." />
+            <marker date="1472626328000" expanded="true" signature="89:152" placeholder="..." />
+            <marker date="1472626328000" expanded="true" signature="153:218" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/somethings/_form.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/somethings/show.json.jbuilder">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2880922">
-          <caret line="15" column="55" selection-start-line="15" selection-start-column="55" selection-end-line="15" selection-end-column="55" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/somethings_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.32919255">
+          <caret line="91" column="50" selection-start-line="91" selection-start-column="50" selection-end-line="91" selection-end-column="50" />
+          <folding>
+            <marker date="1472637291000" expanded="true" signature="145:187" placeholder="#..." />
+            <marker date="1472637291000" expanded="true" signature="270:316" placeholder="#..." />
+            <marker date="1472637291000" expanded="true" signature="485:529" placeholder="#..." />
+            <marker date="1472637291000" expanded="true" signature="1248:1306" placeholder="#..." />
+            <marker date="1472637291000" expanded="true" signature="1744:1796" placeholder="#..." />
+          </folding>
         </state>
       </provider>
     </entry>
