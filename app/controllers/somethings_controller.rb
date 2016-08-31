@@ -41,13 +41,7 @@ class SomethingsController < ApplicationController
         if @something.todo_action == "Stop EC2"
           stop(instance_id)
         end
-        if @something.todo_action == "Start RDS"
-          rdsstart(instance_id)
-        end
-        if @something.todo_action == "Stop RDS"
-          rdsstop(instance_id)
-        end
-        format.html { redirect_to @something, notice: 'Something was successfully created.' }
+        format.html { redirect_to @something, notice: 'Something was successfully done, please check the aws console or json file for details.' }
         format.json { render :show, status: :created, location: @something }
       else
         format.html { render :new }
@@ -61,7 +55,7 @@ class SomethingsController < ApplicationController
   def update
     respond_to do |format|
       if @something.update(something_params)
-        # format.html {  notice: 'Something was successfully updated.' } #redirect_to @something,
+        format.html { redirect_to @something, notice: 'Something was successfully updated.' } #redirect_to @something,
         format.json { render :show, status: :ok, location: @something }
       else
         format.html { render :edit }
@@ -120,45 +114,7 @@ class SomethingsController < ApplicationController
                                     })
     # redirect_to root_path and return
     end
-  def rdsstart(instance_id)
-    dbsnapshots.first.restore({
-                                  db_instance_identifier: dbinstanceidentifier, # required
-                                  # db_instance_class: "String",
-                                  # port: 3306,
-                                  # availability_zone: "String",
-                                  # db_subnet_group_name: "String",
-                                  multi_az: false,
-                                  publicly_accessible: true,
-                                  # auto_minor_version_upgrade: false,
-                                  # license_model: "String",
-                                  # db_name: "String",
-                                  # engine: "String",
-                                  # iops: 1,
-                                  # option_group_name: "String",
-                                  # tags: [
-                                  #     {
-                                  #         key: "String",
-                                  #         value: "String",
-                                  #     },
-                                  # ],
-                                  # storage_type: "String",
-                                  # tde_credential_arn: "String",
-                                  # tde_credential_password: "String",
-                                  # domain: "String",
-                                  # copy_tags_to_snapshot: false,
-                                  # domain_iam_role_name: "String",
-                              })
-    dbsnapshots.first.delete()
-    puts"Starting DB Instance " + dbinstanceidentifier
-  end
-  def rdsstop(instance_id)
-    dbInstance=rds.db_instance()
-    dbInstance.delete({
-                          skip_final_snapshot: false,
-                          final_db_snapshot_identifier: dbsnapshotidentifier,
-                      })
-    puts "Deleting the instance this may take few minutes"
-  end
+
 
 
 end

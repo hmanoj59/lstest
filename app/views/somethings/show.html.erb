@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Instance Id Used i-85a007b4</h1>
+<h1>Instance Id Used <%= @something.instanceid %></h1>
 
   <strong>Instanceid:</strong>
   <%= @something.instanceid %>
@@ -10,3 +10,5 @@
   <%= @something.todo_action %>
 <p> The instance has been started at <%= Time.now%></p>
 
+<%= link_to 'NewTask', new_something_path%>
+<%= link_to 'Json', somethings_path, target: '_blank' %>
