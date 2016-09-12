@@ -88,8 +88,10 @@ class SomethingsController < ApplicationController
 
     ec2_client = Aws::EC2::Client.new(
         # region: ENV['AWS_REGION'],
-        # access_key_id: ENV['AWS_API_KEY'],
-        # secret_access_key: ENV['AWS_SECRET_KEY']
+        access_key_id: ENV['AWS_API_KEY'],
+        secret_access_key: ENV['AWS_SECRET_KEY']
+        access_key_id: '',
+        secret_access_key: ''
 
     )
 
