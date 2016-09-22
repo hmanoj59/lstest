@@ -87,10 +87,19 @@ class SomethingsController < ApplicationController
   def start(instance_id)
 
     ec2_client = Aws::EC2::Client.new(
+<<<<<<< HEAD
          region: 'us-east-1',
          access_key_id: ENV['AWS_API_KEY'],
          secret_access_key: ENV['AWS_SECRET_KEY']
 	
+=======
+        # region: ENV['AWS_REGION'],
+        access_key_id: ENV['AWS_API_KEY'],
+        secret_access_key: ENV['AWS_SECRET_KEY']
+        access_key_id: '',
+        secret_access_key: ''
+
+>>>>>>> 803120782114d0dcd216b9ad7d92162cfed93f04
     )
 
     ec2_client.start_instances({
