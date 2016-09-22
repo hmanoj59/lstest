@@ -87,10 +87,10 @@ class SomethingsController < ApplicationController
   def start(instance_id)
 
     ec2_client = Aws::EC2::Client.new(
-        # region: ENV['AWS_REGION'],
-        # access_key_id: ENV['AWS_API_KEY'],
-        # secret_access_key: ENV['AWS_SECRET_KEY']
-
+         region: 'us-east-1',
+         access_key_id: ENV['AWS_API_KEY'],
+         secret_access_key: ENV['AWS_SECRET_KEY']
+	
     )
 
     ec2_client.start_instances({
@@ -104,9 +104,10 @@ class SomethingsController < ApplicationController
 
     def stop(instance_id)
       ec2_client = Aws::EC2::Client.new(
-          # region: ENV['AWS_REGION'],
-          access_key_id: ENV['AWS_API_KEY'],
-          secret_access_key: ENV['AWS_SECRET_KEY']
+           region: 'us-east-1',
+           access_key_id: ENV['AWS_API_KEY'],
+           secret_access_key: ENV['AWS_SECRET_KEY']
+
       )
     ec2_client.stop_instances({
                                         dry_run: false,
