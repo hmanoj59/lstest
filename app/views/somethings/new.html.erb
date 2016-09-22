@@ -1,5 +1,6 @@
-<h1>New Something</h1>
-
+<h1>Hello</h1>
+<h2> Last Action Performed: <%= (Something.last).todo_action %></h2>
+<h3> instanceid used: <%= (Something.last).instanceid %></h3>
 <%= render 'form', something: @something %>
 
 <%= link_to 'Json', somethings_path, target: '_blank' %>

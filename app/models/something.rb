@@ -1,2 +1,4 @@
 class Something < ApplicationRecord
+
+
 end

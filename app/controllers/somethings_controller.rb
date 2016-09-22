@@ -1,4 +1,5 @@
 require 'aws-sdk'
+require 'logger'
 
 class SomethingsController < ApplicationController
   before_action :set_something, only: [:show, :edit, :update, :destroy]
@@ -87,26 +88,31 @@ class SomethingsController < ApplicationController
   def start(instance_id)
 
     ec2_client = Aws::EC2::Client.new(
-        # region: ENV['AWS_REGION'],
+        region: ENV['AWS_REGION'],
         access_key_id: ENV['AWS_API_KEY'],
         secret_access_key: ENV['AWS_SECRET_KEY']
-        access_key_id: '',
-        secret_access_key: ''
+        # access_key_id: '',
+        # secret_access_key: ''
 
     )
 
-    ec2_client.start_instances({
+    @startec2 = ec2_client.start_instances({
                                    instance_ids: [@something.instanceid], # required
                                    # additional_info: "String",
                                    dry_run: false,
                                })
+    # JSON.parse(@startec2)
+    response = request.send_request
     puts "Instance started"
+    puts response
     # redirect_to root_path and return
   end
 
     def stop(instance_id)
-      ec2_client = Aws::EC2::Client.new(
-          # region: ENV['AWS_REGION'],
+
+      # AWS.config(:logger => Logger.new($stdout))
+    ec2_client = Aws::EC2::Client.new(
+          region: ENV['AWS_REGION'],
           access_key_id: ENV['AWS_API_KEY'],
           secret_access_key: ENV['AWS_SECRET_KEY']
       )
@@ -115,6 +121,11 @@ class SomethingsController < ApplicationController
                                         instance_ids: [@something.instanceid], # required
                                         force: false,
                                     })
+
+    # response = ec2_client.send_request
+    # puts "Instance stopped"
+    puts "HTTp Method is"
+    # puts ec2_client.http_method
     # redirect_to root_path and return
     end
 
