@@ -35,13 +35,19 @@ class SomethingsController < ApplicationController
     respond_to do |format|
       if @something.save
 
-        if @something.todo_action == "Start EC2"
-          start(instance_id)
+        case @something.todo_action
+        when "Start EC2"
+          ec2tart(instance_id)
+        when "Stop EC2"
+          ec2top(instance_id)
+        when "Create Rds"
+          rdstart()
+        when "Delete Rds"
+          rdstop()
+        else
+          puts "undefined"
         end
 
-        if @something.todo_action == "Stop EC2"
-          stop(instance_id)
-        end
         format.html { redirect_to @something, notice: 'Something was successfully done, please check the aws console or json file for details.' }
         format.json { render :show, status: :created, location: @something }
       else
@@ -75,17 +81,7 @@ class SomethingsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_something
-      @something = Something.find(params[:id])
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def something_params
-      params.require(:something).permit(:instanceid, :todo_action)
-    end
-  def start(instance_id)
+  def ec2tart(instance_id)
 
     ec2_client = Aws::EC2::Client.new(
         # region: ENV['AWS_REGION'],
@@ -105,13 +101,13 @@ class SomethingsController < ApplicationController
                                    dry_run: false,
                                })
 
-    response = request.send_request
-    puts "Instance started"
-    puts response
+    # response = request.send_request
+
+
     # redirect_to root_path and return
   end
 
-    def stop(instance_id)
+    def ec2top(instance_id)
 
       # AWS.config(:logger => Logger.new($stdout))
       ec2_client = Aws::EC2::Client.new(
@@ -119,14 +115,95 @@ class SomethingsController < ApplicationController
            access_key_id: ENV['AWS_API_KEY'],
            secret_access_key: ENV['AWS_SECRET_KEY']
       )
+      # if @something.instanceid == null
+        # @something.instanceid = "i-85a007b4"
+      # end
     ec2_client.stop_instances({
                                         dry_run: false,
                                         instance_ids: [@something.instanceid], # required
                                         force: false,
                                     })
-    puts "Instance stopped"
+
+
+    end
+    def rdstart()
+      rds = Aws::RDS::Resource.new(
+      region: 'us-east-1',
+      access_key_id: ENV['AWS_API_KEY'],
+      secret_access_key: ENV['AWS_SECRET_KEY'])
+            dbsnapshots = rds.db_snapshots({
+                                               db_instance_identifier: "liquidsky",
+                                               db_snapshot_identifier: "liquidsky",
+                                               # snapshot_type: "String",
+                                              #  filters: [
+                                              #      {
+                                              #          name: "liquidsky", # required
+                                              #          values: ["liquidsky"], # required
+                                              #      },
+                                              #  ],
+                                               # max_records: 1,
+                                               # marker: "String",
+                                               # include_shared: false,
+                                               # include_public: true,
+                                           })
+            dbsnapshots.first.restore({
+                                              db_instance_identifier: "liquidsky", # required
+                                              # db_instance_class: "String",
+                                              # port: 3306,
+                                              # availability_zone: "String",
+                                              # db_subnet_group_name: "String",
+                                              multi_az: false,
+                                              publicly_accessible: true,
+                                              # auto_minor_version_upgrade: false,
+                                              # license_model: "String",
+                                              # db_name: "String",
+                                              # engine: "String",
+                                              # iops: 1,
+                                              # option_group_name: "String",
+                                              # tags: [
+                                              #     {
+                                              #         key: "String",
+                                              #         value: "String",
+                                              #     },
+                                              # ],
+                                              # storage_type: "String",
+                                              # tde_credential_arn: "String",
+                                              # tde_credential_password: "String",
+                                              # domain: "String",
+                                              # copy_tags_to_snapshot: false,
+                                              # domain_iam_role_name: "String",
+                                          })
+            # dbsnapshots.first.delete()
+
+
+
     end
 
 
+    def rdstop()
+      rds = Aws::RDS::Resource.new(
+      region: 'us-east-1',
+      access_key_id: ENV['AWS_API_KEY'],
+      secret_access_key: ENV['AWS_SECRET_KEY']
+  )
+
+        dbInstance = rds.db_instance("liquidsky")
+        dbInstance.delete({
+                      skip_final_snapshot: true,
+                      # final_db_snapshot_identifier: "liquidsky",
+                          })
+        puts "Deleting the instance this may take few minutes"
+
+
+      end
+
+
+
+
+private
+
+      def something_params
+        params.require(:something).permit(:instanceid, :todo_action)
+      end
 
 end

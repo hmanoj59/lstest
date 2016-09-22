@@ -1,6 +1,10 @@
 <h1>Hello</h1>
 <h2> Last Action Performed: <%= (Something.last).todo_action %></h2>
-<h3> instanceid used: <%= (Something.last).instanceid %></h3>
+<h2> instanceid used: <%= (Something.last).instanceid %></h2>
+<h3>Use /ec2start to start ec2 instance</h3>
+<h3>Use /ec2stop to stop ec2 instance</h3>
+<h3>Use /createrds to start rds instance</h3>
+<h3>Use /deleterds to stop rds instance</h3>
 <%= render 'form', something: @something %>
 
 <%= link_to 'Json', somethings_path, target: '_blank' %>
